@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskPilot</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>TaskPilot</h1>
+
+  <form id="task-form">
+    <input id="name-input" type="text" placeholder="New task or habit..." required>
+    <select id="kind-input">
+      <option value="task">Task</option>
+      <option value="habit">Habit</option>
+    </select>
+    <button type="submit">Add</button>
+  </form>
+
+  <div id="task-list"></div>
+  <div id="stats"></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

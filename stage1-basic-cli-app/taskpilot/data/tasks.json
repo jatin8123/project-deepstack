@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "name": "walking 2k per day",
+    "kind": "task",
+    "created_on": "2026-09-01",
+    "completed_dates": []
+  },
+  {
+    "id": 2,
+    "name": "Drink 3L water per day",
+    "kind": "habit",
+    "created_on": "2026-09-01",
+    "completed_dates": []
+  },
+  {
+    "id": 3,
+    "name": "RH Summit Deck prep",
+    "kind": "task",
+    "created_on": "2026-09-01",
+    "completed_dates": [
+      "2026-09-01"
+    ]
+  }
+]
