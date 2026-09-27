@@ -1,6 +1,9 @@
 import os
 import glob
+import sys
 import requests
+import pysqlite3
+sys.modules["sqlite3"] = pysqlite3
 import chromadb
 from docling.document_converter import DocumentConverter
 
