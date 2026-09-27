@@ -1,0 +1,10 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: rag-api-route
+spec:
+  to:
+    kind: Service
+    name: rag-api-service
+  tls:
+    termination: edge

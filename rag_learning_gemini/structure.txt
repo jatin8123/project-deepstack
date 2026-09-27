@@ -1,0 +1,16 @@
+rag-openshift-learning/
+├── rag-api/
+│   ├── orchestrator.py
+│   ├── Containerfile
+│   └── requirements.txt
+├── ingestion/
+│   ├── pipeline.py
+│   ├── Containerfile
+│   └── requirements.txt
+├── ui/
+│   ├── app.py
+│   ├── Containerfile
+│   └── requirements.txt
+└── openshift/
+    ├── configmap.yaml
+    └── deployments.yaml

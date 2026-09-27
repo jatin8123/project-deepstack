@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: rag-ingestion-job
+spec:
+  template:
+    spec:
+      securityContext:
+        runAsNonRoot: true
+      containers:
+      - name: rag-ingestion
+        # Adjust image path based on your OpenShift internal registry / namespace
+        image: image-registry.openshift-image-registry.svc:5000/rag-learning/rag-ingestion:latest
+        envFrom:
+        - configMapRef:
+            name: rag-config
+      restartPolicy: Never
+  backoffLimit: 1

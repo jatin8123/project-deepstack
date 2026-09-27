@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rag-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rag-api
+  template:
+    metadata:
+      labels:
+        app: rag-api
+    spec:
+      securityContext:
+        runAsNonRoot: true
+      containers:
+      - name: rag-api
+        image: image-registry.openshift-image-registry.svc:5000/rag-learning/rag-api:latest
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: rag-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rag-api-service
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: rag-api
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rag-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rag-ui
+  template:
+    metadata:
+      labels:
+        app: rag-ui
+    spec:
+      securityContext:
+        runAsNonRoot: true
+      containers:
+      - name: rag-ui
+        image: image-registry.openshift-image-registry.svc:5000/rag-learning/rag-ui:latest
+        ports:
+        - containerPort: 8501
+        envFrom:
+        - configMapRef:
+            name: rag-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rag-ui-service
+spec:
+  ports:
+  - port: 8501
+    targetPort: 8501
+  selector:
+    app: rag-ui
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: rag-ui-route
+spec:
+  to:
+    kind: Service
+    name: rag-ui-service
+  tls:
+    termination: edge
