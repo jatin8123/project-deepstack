@@ -3,3 +3,4 @@ uvicorn==0.28.0
 requests==2.31.0
 chromadb==0.4.24
 numpy<2.0
+pysqlite3-binary==0.5.3
