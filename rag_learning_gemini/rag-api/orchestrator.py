@@ -1,5 +1,8 @@
 from fastapi import FastAPI
 import requests
+import sys
+import pysqlite3
+sys.modules["sqlite3"] = pysqlite3
 import chromadb
 import os
 
