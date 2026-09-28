@@ -11,6 +11,6 @@ f.  Deploy the apps in sequence - API-->UI-->Ingestion
 
   ##Command for running BuildConfig and Build
 
-oc new-build --binary --name=api --strategy=docker -n ai-stack-dev
+oc new-build --binary --name=rag-api --strategy=docker -n rag-learning
 
 oc start-build api --from-dir=apps/api --follow -n ai-stack-dev
